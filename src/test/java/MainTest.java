@@ -127,7 +127,7 @@ public class MainTest extends BasePage {
             test.pass("Picking a sending method, entering sender's name and receiver's email was successful!!");
         } catch (Exception e) {
             e.printStackTrace();
-            test.fail("Picking a sending method, entering sender's name and receiver's email was successful!! " + e.getMessage());
+            test.fail("Picking a sending method, entering sender's name and receiver's email was not successful!! " + e.getMessage());
         }
     }
 
