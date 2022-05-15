@@ -10,14 +10,30 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
 
+/*
+ This is our singleton class which creates the instance of a webdriver,
+ based on a browsertype in our xml config file.
+ It also log the results of whether the driver was established successfully.
+ */
 public class DriverSingleton extends BasePage {
 
+    /*
+    Globally calling our ExtentReportFactory and its reporter method;
+    as well as the ExtentTest with assignment of our own test suite details.
+    We also globally call our driver.
+    */
     private static ExtentReports extent = ExtentReportFactory.getReporter();
     private static ExtentTest test = extent.createTest("Web Automation Project", "BuyMe Website - Sanity test");
     private static WebDriver driver;
 
+    //Locally instantiating this singleton.
     public DriverSingleton() throws Exception {
     }
+
+    /*
+    Creating a method that will create one instance of the driver and return the same instance everywhere in our suite.
+    It is wrapped between try-catch blocks based on the outcome of the test result.
+     */
 
     public static WebDriver getDriverInstance() throws Exception {
 
@@ -29,6 +45,7 @@ public class DriverSingleton extends BasePage {
                     driver = new ChromeDriver();
                     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     driver.manage().window().maximize();
+                    //logging the results in our extent report - passing when chrome was established.
                     test.log(Status.PASS, "ChromeDriver established successfully!");
 
                 } else if (type.equals("FF")) {
@@ -36,12 +53,14 @@ public class DriverSingleton extends BasePage {
                     driver = new FirefoxDriver();
                     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     driver.manage().window().maximize();
+                    //logging the results in our extent report - passing when firefox was established.
                     test.log(Status.PASS, "FirefoxDriver established successfully!");
                 }
 
 
             } catch (Exception e) {
                 e.printStackTrace();
+                ////logging the results in our extent report - failing when driver was not established.
                 test.log(Status.FAIL,"Driver connection failed! " + e.getMessage());
                 throw new Exception("Driver failed!");
             }
