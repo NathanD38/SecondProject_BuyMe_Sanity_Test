@@ -2,7 +2,7 @@ package Pages;
 
 import Utilities.Constants;
 import Utilities.DriverSingleton;
-import Utilities.ExtentReportFactory;
+import Utilities.ExtentReportSingleton;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
@@ -31,7 +31,7 @@ public class BasePage {
     as well as the ExtentTest with assignment of our own test suite details.
     We also globally call our driver.
     */
-    private static ExtentReports extent = ExtentReportFactory.getReporter();
+    private static ExtentReports extent = ExtentReportSingleton.getReporter();
     private static ExtentTest test = extent.createTest("Web Automation Project", "BuyMe Website - Sanity test");
     private static WebDriver driver;
 

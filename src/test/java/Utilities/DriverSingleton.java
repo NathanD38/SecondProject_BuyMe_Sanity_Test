@@ -22,7 +22,7 @@ public class DriverSingleton extends BasePage {
     as well as the ExtentTest with assignment of our own test suite details.
     We also globally call our driver.
     */
-    private static ExtentReports extent = ExtentReportFactory.getReporter();
+    private static ExtentReports extent = ExtentReportSingleton.getReporter();
     private static ExtentTest test = extent.createTest("Web Automation Project", "BuyMe Website - Sanity test");
     private static WebDriver driver;
 

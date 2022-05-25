@@ -1,6 +1,6 @@
 import Pages.*;
 import Utilities.DriverSingleton;
-import Utilities.ExtentReportFactory;
+import Utilities.ExtentReportSingleton;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +14,7 @@ public class MainTest extends BasePage {
     Globally calling our ExtentReportFactory and its reporter method;
     as well as the ExtentTest with assignment of our own test suite details.
     */
-    private static ExtentReports extent = ExtentReportFactory.getReporter();
+    private static ExtentReports extent = ExtentReportSingleton.getReporter();
     private static ExtentTest test = extent.createTest("Web Automation Project", "BuyMe Website - Sanity test");
     private static WebDriver driver;
 

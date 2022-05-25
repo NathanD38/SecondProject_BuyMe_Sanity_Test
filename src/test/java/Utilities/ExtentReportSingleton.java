@@ -4,7 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 //This class initialize the reporter that is used to generate the report and its path.
-public class ExtentReportFactory {
+public class ExtentReportSingleton {
 
     //Globally initializing the two objects responsible for creating the report.
     public static ExtentReports extent;
