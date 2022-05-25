@@ -46,6 +46,8 @@ public class DriverSingleton extends BasePage {
                     System.setProperty("webdriver.chrome.driver", Constants.CHROMEDRIVER_PATH);
                     ChromeOptions chromeOptions = new ChromeOptions();
                     chromeOptions.addArguments("--headless");
+                    chromeOptions.addArguments("–start-maximized");
+                    chromeOptions.addArguments("--window-size=1325x744");
                     driver = new ChromeDriver(chromeOptions);
                     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     driver.manage().window().maximize();
@@ -56,6 +58,8 @@ public class DriverSingleton extends BasePage {
                     System.setProperty("webdriver.firefox.driver", Constants.FIREFOXDRIVER_PATH);
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
                     firefoxOptions.addArguments("--headless");
+                    firefoxOptions.addArguments("--start-maximized");
+                    firefoxOptions.addArguments("--window-size=1325x744");
                     driver = new FirefoxDriver(firefoxOptions);
                     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     driver.manage().window().maximize();
