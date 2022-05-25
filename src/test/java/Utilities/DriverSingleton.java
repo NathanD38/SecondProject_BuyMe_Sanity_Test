@@ -6,7 +6,9 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.time.Duration;
 
@@ -42,7 +44,9 @@ public class DriverSingleton extends BasePage {
                 String type = (getData("browserType"));
                 if (type.equals("Chrome")) {
                     System.setProperty("webdriver.chrome.driver", Constants.CHROMEDRIVER_PATH);
-                    driver = new ChromeDriver();
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.addArguments("--headless");
+                    driver = new ChromeDriver(chromeOptions);
                     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     driver.manage().window().maximize();
                     //logging the results in our extent report - passing when chrome was established.
@@ -50,7 +54,9 @@ public class DriverSingleton extends BasePage {
 
                 } else if (type.equals("FF")) {
                     System.setProperty("webdriver.firefox.driver", Constants.FIREFOXDRIVER_PATH);
-                    driver = new FirefoxDriver();
+                    FirefoxOptions firefoxOptions = new FirefoxOptions();
+                    firefoxOptions.addArguments("--headless");
+                    driver = new FirefoxDriver(firefoxOptions);
                     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     driver.manage().window().maximize();
                     //logging the results in our extent report - passing when firefox was established.
