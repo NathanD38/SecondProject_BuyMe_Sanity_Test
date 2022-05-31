@@ -32,7 +32,7 @@ public class BusinessPage extends BasePage {
 
     //This was required by the project; not a necessary step - asserting the currentURl (based on the chosen sum, region and category).
     private void assertURL() {
-        String siteURL = "https://buyme.co.il/search?budget=3&category=303&region=12";
+        String siteURL = "https://buyme.co.il/search?budget=3&category=315&region=12";
         String actualURL = driver.getCurrentUrl();
         Assert.assertEquals(actualURL, siteURL);
         System.out.println("Current URL is: " + actualURL);
@@ -40,7 +40,7 @@ public class BusinessPage extends BasePage {
 
     //Picking one business from the results.
     private void pickOneBusiness() {
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='https://buyme.co.il/supplier/2829100?budget=3&category=303&query=&region=12'"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[href='https://buyme.co.il/supplier/2473090?budget=3&category=315&query=&region=12'"))).click();
     }
 
     //Entering the desired sum (within the range) in the opened internal page.

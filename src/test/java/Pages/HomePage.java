@@ -61,9 +61,9 @@ public class HomePage extends BasePage {
         //Initialize javascript executor
         JavascriptExecutor js = (JavascriptExecutor) driver;
         //Scrolling down to the desired category
-        js.executeScript("arguments[0].scrollIntoView(true);", getElement(By.cssSelector("li[value='303']")));
+        js.executeScript("arguments[0].scrollIntoView(true);", getElement(By.cssSelector("li[value='315']")));
         //Choose "Enrichment & Workshops"
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li[value='303']"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li[value='315']"))).click();
     }
 
     //Pressing the "Pick me a Present" button
